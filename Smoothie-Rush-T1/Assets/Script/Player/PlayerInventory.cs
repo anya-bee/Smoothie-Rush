@@ -7,7 +7,6 @@ public class PlayerInventory : MonoBehaviour
 
     private float money;
     public int fruits = 0; 
-    // Start is called before the first frame update
 
 
 
@@ -18,4 +17,14 @@ public class PlayerInventory : MonoBehaviour
             fruits++;
         }
     }
+
+    public void addFruitToBlender()
+    {
+        if (fruits >= 4)
+        {
+            fruits--;
+        }
+    }
+
+
 }

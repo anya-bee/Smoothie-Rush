@@ -9,7 +9,8 @@ public class Fridge : MonoBehaviour
 
     [SerializeField] private int fridgeFruits = 10;
     [SerializeField] private PlayerInventory playerInventory; 
-    [SerializeField] private int playerFruits; 
+    [SerializeField] private int playerFruits;
+    public string fruitType; 
 
     // Start is called before the first frame update
     void Start()
