@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fridge
+  - Blender
   layers:
   - Default
   - TransparentFX
@@ -12,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Interactibles
   - 
   - 
   - 
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 866330329
+    locked: 0
+  - name: Interactibles
+    uniqueID: 3842017961
     locked: 0

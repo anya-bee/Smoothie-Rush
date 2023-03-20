@@ -9,6 +9,7 @@ public class Draggable : MonoBehaviour
 
     Vector3 mousePositionOffset;
 
+
     private Vector3 GetMouseWorldPosition()
     {
         //capture mouse posiiton and return WorldPoint
@@ -19,11 +20,13 @@ public class Draggable : MonoBehaviour
     private void OnMouseDown()
     {
         // capture mouse offset 
-        mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
+        mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition() ; 
     }
 
     private void OnMouseDrag()
     {
         transform.position = GetMouseWorldPosition() + mousePositionOffset; 
     }
+
+
 }

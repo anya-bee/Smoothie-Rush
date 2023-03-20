@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events; 
 
 public class Interactibles : MonoBehaviour
 {
     [SerializeField] private GameObject interactAction;
     [SerializeField] private KeyCode interactKey;
+
+    public UnityEvent openUI; 
 
     [HideInInspector] public bool playerInRange;
     [SerializeField] private float interactRange = 0.5f;
@@ -22,8 +25,6 @@ public class Interactibles : MonoBehaviour
         interactAction.SetActive(false);
     }
 
-
-
     // Update is called once per frame
     private void Update()
     {
@@ -34,7 +35,9 @@ public class Interactibles : MonoBehaviour
             interactAction.SetActive(true); 
             if (Input.GetKeyDown(interactKey))
             {
+                openUI.Invoke(); 
                 Debug.Log(objectName); 
+
             }
         }
         else
@@ -51,4 +54,6 @@ public class Interactibles : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(interactPoint.position, interactRange);
     }
+
+
 }
