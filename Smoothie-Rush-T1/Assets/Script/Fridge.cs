@@ -28,6 +28,7 @@ public class Fridge : MonoBehaviour
     {
         if ( fridgeFruits > 0 && playerFruits < 4)
         {
+            playerInventory.inventoryFruits.Add(fruitType);
             fridgeFruits--;
         }
         

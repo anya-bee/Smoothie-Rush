@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fridge
   - Blender
+  - Drop
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Player
   - Interactibles
-  - 
+  - Drop
   - 
   - 
   - 
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: Interactibles
     uniqueID: 3842017961
+    locked: 0
+  - name: Drop
+    uniqueID: 3728301011
     locked: 0

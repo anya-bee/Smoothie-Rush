@@ -9,7 +9,15 @@ public class Draggable : MonoBehaviour
 
     Vector3 mousePositionOffset;
 
+    Vector3 starterPos;
+    public bool onMouseUp = false;
+    public bool isOnInventory = false; 
 
+
+    private void Start()
+    {
+        starterPos = transform.position;
+    }
     private Vector3 GetMouseWorldPosition()
     {
         //capture mouse posiiton and return WorldPoint
@@ -25,7 +33,19 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        transform.position = GetMouseWorldPosition() + mousePositionOffset; 
+        if (isOnInventory == false)
+        {
+            transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        }
+        
+    }
+
+    private void OnMouseUp()
+    {
+        onMouseUp = true; 
+        transform.position = starterPos;
+        
+        
     }
 
 
