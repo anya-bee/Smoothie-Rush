@@ -21,14 +21,14 @@ public class Fridge : MonoBehaviour
 
     private void Update()
     {
-        playerFruits = playerInventory.fruits;
+        playerFruits = playerInventory.playerFruits;
     }
 
     public void decreaseFruit()
     {
         if ( fridgeFruits > 0 && playerFruits < 4)
         {
-            playerInventory.inventoryFruits.Add(fruitType);
+           
             fridgeFruits--;
         }
         

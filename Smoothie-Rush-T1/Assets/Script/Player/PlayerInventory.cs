@@ -6,8 +6,8 @@ public class PlayerInventory : MonoBehaviour
 {
 
     private float money;
-    public int fruits = 0;
-    public List<string> inventoryFruits; 
+    public int playerFruits = 0;
+    public List<GameObject> inventoryFruits; 
 
     private GameObject fridge;
 
@@ -17,21 +17,18 @@ public class PlayerInventory : MonoBehaviour
 
     public void addFruitToInventory()
     {
-        if (fruits  < 4)
+        if (playerFruits  < 4)
         {
-          fruits++;
+          playerFruits++;
         }
     }
 
     public void addFruitToBlender()
     {
-        if (fruits >= 4)
+        if (playerFruits >= 4)
         {
-            fruits--;
+            playerFruits--;
         }
     }
-
-
-
 
 }

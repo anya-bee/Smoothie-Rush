@@ -5,7 +5,7 @@ using UnityEngine;
 public class fridgeInventory : MonoBehaviour
 {
     [SerializeField] public GameObject[] emptySpace;
-    [SerializeField] private int fruitQuantity;
+
     public fridgeFruit[] fruits;
 
     [System.Serializable]
@@ -28,5 +28,6 @@ public class fridgeInventory : MonoBehaviour
         fillFridge(); 
     }
 
+    
 
 }
