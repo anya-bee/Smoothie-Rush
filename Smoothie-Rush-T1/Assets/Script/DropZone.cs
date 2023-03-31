@@ -34,18 +34,22 @@ public class DropZone : MonoBehaviour
                 GameObject newFruit =  Instantiate(colliderInt[0].gameObject, dropZonePoint.position, Quaternion.identity);
                 newFruit.layer = LayerMask.NameToLayer("Slots");
                 player.GetComponent<PlayerInventory>().inventoryFruits.Add(newFruit);
-                player.GetComponent<PlayerInventory>().playerFruits ++; 
-                newFruit.GetComponent<Draggable>().isOnInventory = true; 
-                
+                player.GetComponent<PlayerInventory>().addFruitToInventory(); 
+                newFruit.GetComponent<Draggable>().isOnInventory = true;
+                //Debug.Log(colliderInt[0].GetComponent<fridgeInventory.fridgeFruit>().fruitAmount); 
+    
             }
             colliderInt[0].GetComponent<Draggable>().onMouseUp = false;
-
         }
-
-
         else
         {
             fruitInRange = false; 
         }
+    }
+
+
+    public void hideSlots()
+    {
+        this.gameObject.SetActive(false);
     }
 }

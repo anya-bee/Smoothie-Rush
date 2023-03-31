@@ -8,7 +8,10 @@ public class Fruit : MonoBehaviour
 
     public string fruitType;
 
-    
+    public void hideFruit()
+    {
+        this.gameObject.SetActive(false);
+    }
 
     
 }

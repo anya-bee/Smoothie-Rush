@@ -59,6 +59,12 @@ TagManager:
   - name: Interactibles
     uniqueID: 3842017961
     locked: 0
+  - name: Blender BG
+    uniqueID: 1233859973
+    locked: 0
+  - name: Blender Interactibles
+    uniqueID: 3835275503
+    locked: 0
   - name: Drop
     uniqueID: 3728301011
     locked: 0
