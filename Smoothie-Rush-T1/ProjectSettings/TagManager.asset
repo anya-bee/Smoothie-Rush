@@ -18,7 +18,7 @@ TagManager:
   - Interactibles
   - Drop
   - Slots
-  - 
+  - Blender
   - 
   - 
   - 
@@ -56,18 +56,21 @@ TagManager:
   - name: 'Screens '
     uniqueID: 470364477
     locked: 0
-  - name: Interactibles
-    uniqueID: 3842017961
-    locked: 0
   - name: Blender BG
     uniqueID: 1233859973
     locked: 0
-  - name: Blender Interactibles
-    uniqueID: 3835275503
+  - name: Interactibles
+    uniqueID: 3842017961
     locked: 0
   - name: Drop
     uniqueID: 3728301011
     locked: 0
+  - name: fruits
+    uniqueID: 430293967
+    locked: 0
   - name: Buttons
     uniqueID: 3726861999
+    locked: 0
+  - name: Blender Interactibles
+    uniqueID: 3835275503
     locked: 0

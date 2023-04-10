@@ -9,9 +9,10 @@ public class Draggable : MonoBehaviour
 
     Vector3 mousePositionOffset;
 
-    Vector3 starterPos;
+    public Vector3 starterPos;
     public bool onMouseUp = false;
-    public bool isOnInventory = false; 
+    public bool isOnInventory = false;
+    public bool isOnBlender = false; 
 
 
     private void Start()
@@ -37,12 +38,17 @@ public class Draggable : MonoBehaviour
         {
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
         }
+
+        if (GameObject.FindWithTag("Blender").GetComponent<Blender>().blenderMode == true)
+        {
+            isOnInventory = false; 
+        }
         
     }
 
     private void OnMouseUp()
     {
-        onMouseUp = true; 
+        onMouseUp = true;
         transform.position = starterPos;
    
     }

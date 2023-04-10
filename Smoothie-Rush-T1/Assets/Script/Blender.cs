@@ -5,10 +5,26 @@ using UnityEngine;
 public class Blender : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public bool blenderMode;
     void Start()
     {
-        this.gameObject.SetActive(false);
+        blenderMode = false;
+    }
+    public void blenderModeOn()
+    {
+        blenderMode = true;
     }
 
+    private void Update()
+    {
+        
+    }
+
+    
+
+    
+
+   
     
 }

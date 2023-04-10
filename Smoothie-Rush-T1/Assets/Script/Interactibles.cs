@@ -46,6 +46,7 @@ public class Interactibles : MonoBehaviour
             interactAction.SetActive(false); 
         }
 
+
     }
 
 

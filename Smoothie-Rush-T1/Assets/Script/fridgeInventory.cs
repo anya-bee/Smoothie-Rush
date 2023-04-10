@@ -10,6 +10,7 @@ public class fridgeInventory : MonoBehaviour
     [SerializeField] public GameObject[] emptySpace;
 
     public fridgeFruit[] fruits;
+    public List<GameObject> fridgeFruits;
 
     [System.Serializable]
     public class fridgeFruit 
@@ -28,26 +29,31 @@ public class fridgeInventory : MonoBehaviour
         for(int i = 0; i< fruits.Length; i++)
         {
             GameObject newFruit = Instantiate(fruits[i].fruitPrefab, emptySpace[i].transform.position, Quaternion.identity);
-
+            newFruit.SetActive(true);
+            fridgeFruits.Add(newFruit);
         }
     }
 
     public void hideFridge()
     {
 
-        foreach (fridgeFruit fruit in fruits)
+        this.gameObject.SetActive(false);
+
+        foreach (GameObject fruit in fridgeFruits)
         {
-            fruit.fruitPrefab.gameObject.SetActive(false);
+            fruit.SetActive(false);
         }
 
     }
 
-    public void showFruit()
+    public void showFridge()
     {
 
-        foreach (fridgeFruit fruit in fruits)
+        this.gameObject.SetActive(true);
+
+        foreach (GameObject fruit in fridgeFruits)
         {
-            fruit.fruitPrefab.gameObject.SetActive(true);
+            fruit.SetActive(true);
         }
 
     }
