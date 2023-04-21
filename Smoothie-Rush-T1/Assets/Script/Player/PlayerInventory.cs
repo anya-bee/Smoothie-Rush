@@ -51,9 +51,12 @@ public class PlayerInventory : MonoBehaviour
         {
             if (fruit.GetComponent<Draggable>().isOnBlender == true)
             {
+                GameObject.FindWithTag("CodeBlender").GetComponent<smoothieMaker>().fruitsOnBlender.Add(fruit);
                 inventoryFruits.Remove(fruit);
-                playerFruits--; 
+                playerFruits--;
+                break;
             }
         }
     }
+
 }

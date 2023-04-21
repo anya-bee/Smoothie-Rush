@@ -13,8 +13,16 @@ public class smoothieMaker : MonoBehaviour
     [SerializeField] private int interactiblesFound;
 
     public List<GameObject> targets;
+    public List<GameObject> fruitsOnBlender;
     private float fruitLerpSpeed = 2;
     public Animator animator;
+    public GameObject button;
+
+    private void Start()
+    {
+        button.SetActive(false);
+    }
+
 
     private void Update()
     {
@@ -26,13 +34,16 @@ public class smoothieMaker : MonoBehaviour
             colliderInt[0].GetComponent<Draggable>().starterPos = colliderInt[0].GetComponent<Transform>().position;
             colliderInt[0].GetComponent<Draggable>().isOnInventory = true;
             colliderInt[0].GetComponent<Draggable>().isOnBlender = true;
-
+            
         }
 
         if (GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().playerFruits == 0)
         {
-            animator.SetBool("closed", true); 
+            button.SetActive(true);
+            animator.SetBool("closed", true);
         }
+
+
     }
 
     private void OnDrawGizmosSelected()
@@ -40,4 +51,16 @@ public class smoothieMaker : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(interactPoint.position, interactRange);
     }
+
+    public void RemoveFruits()
+    {
+
+        foreach (GameObject fruit in fruitsOnBlender)
+        {
+            Destroy(fruit);
+        }
+    }
+
+
+
 }

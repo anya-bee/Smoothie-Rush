@@ -7,6 +7,8 @@ TagManager:
   - Fridge
   - Blender
   - Drop
+  - MakeSmoothie
+  - CodeBlender
   layers:
   - Default
   - TransparentFX
@@ -68,9 +70,12 @@ TagManager:
   - name: fruits
     uniqueID: 430293967
     locked: 0
-  - name: Buttons
-    uniqueID: 3726861999
-    locked: 0
   - name: Blender Interactibles
     uniqueID: 3835275503
+    locked: 0
+  - name: Juice
+    uniqueID: 3234362827
+    locked: 0
+  - name: Buttons
+    uniqueID: 3726861999
     locked: 0
