@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     private Story currentStory;
 
-    private bool dialogueIsPlaying;
+    public bool dialogueIsPlaying { get; private set; }
 
     [SerializeField] private KeyCode interactKey;
 

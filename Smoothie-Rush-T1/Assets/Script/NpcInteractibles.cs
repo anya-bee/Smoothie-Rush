@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using Ink.Runtime;
 
 public class NpcInteractibles : MonoBehaviour
@@ -9,7 +8,6 @@ public class NpcInteractibles : MonoBehaviour
     [SerializeField] private GameObject interactAction;
     [SerializeField] private KeyCode interactKey;
 
-    public UnityEvent openUI; 
 
     [HideInInspector] public bool playerInRange;
     [SerializeField] private float interactRange = 0.5f;
@@ -18,8 +16,9 @@ public class NpcInteractibles : MonoBehaviour
     [SerializeField] private int interactiblesFound;
     private readonly Collider2D[] colliderInt = new Collider2D[3];
 
-    [SerializeField] private TextAsset inkJSON; 
+    [SerializeField] private TextAsset inkJSON;
 
+    public List<GameObject> npcOrder;
 
     private void Start()
     {
@@ -35,13 +34,13 @@ public class NpcInteractibles : MonoBehaviour
         if (interactiblesFound == 1)
         {
             playerInRange = true;
-            interactAction.SetActive(true); 
-            if (Input.GetKeyDown(interactKey))
-            {
-                openUI.Invoke();
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+            interactAction.SetActive(true);
+            if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) {
+                if (Input.GetKeyDown(interactKey))
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
 
-
+                }
             }
         }
         else
