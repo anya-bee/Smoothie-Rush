@@ -18,6 +18,9 @@ public class smoothieMaker : MonoBehaviour
     public Animator animator;
     public GameObject button;
 
+    public GameObject juiceRender;
+    public bool smoothieBeingMade;
+    
     private void Start()
     {
         button.SetActive(false);
@@ -41,6 +44,12 @@ public class smoothieMaker : MonoBehaviour
         {
             button.SetActive(true);
             animator.SetBool("closed", true);
+            changeJuiceColor();
+        }
+
+        if  (smoothieBeingMade)
+        {
+            RemoveFruits();
         }
 
 
@@ -54,10 +63,79 @@ public class smoothieMaker : MonoBehaviour
 
     public void RemoveFruits()
     {
+        foreach (GameObject fruit in fruitsOnBlender)
+        {
+            fruit.SetActive(false);
+            fruitsOnBlender.Remove(fruit);
+            break;
+        }
+    }
+
+    public void hideBlenderFruits()
+    {
 
         foreach (GameObject fruit in fruitsOnBlender)
         {
-            Destroy(fruit);
+            
+            break;
+        }
+    }
+
+
+    public void makeSmoothieOrder()
+    {
+        smoothieBeingMade = true; 
+        animator.SetBool("makeSmoothie", true);
+    }
+
+    public void changeJuiceColor()
+    {
+        int orange = 0;
+        int strawberry = 0;
+        int banana = 0;
+        int pitahaya = 0;
+        foreach (GameObject fruit in fruitsOnBlender)
+        {
+            if (fruit.GetComponent<Fruit>().fruitType == "Orange")
+            {
+                orange =+ 1;
+            }
+
+            if (fruit.GetComponent<Fruit>().fruitType == "Strawberry")
+            {
+                strawberry =+ 1;
+            }
+
+            if (fruit.GetComponent<Fruit>().fruitType == "Banana")
+            {
+                banana =+ 1;
+            }
+
+            if (fruit.GetComponent<Fruit>().fruitType == "Pitahaya")
+            {
+                pitahaya =+ 1;
+            }
+        }
+        if (orange >= 1)
+        {
+            juiceRender.GetComponent<SpriteRenderer>().color = Color.cyan;
+        }
+
+        if (strawberry >= 1)
+        {
+            juiceRender.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+
+        if (banana >= 1)
+        {
+            juiceRender.GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+
+        if (pitahaya >= 2)
+        {
+            juiceRender.GetComponent<SpriteRenderer>().color = Color.magenta;
+
+
         }
     }
 

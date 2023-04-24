@@ -9,6 +9,7 @@ TagManager:
   - Drop
   - MakeSmoothie
   - CodeBlender
+  - Juice
   layers:
   - Default
   - TransparentFX
