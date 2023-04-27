@@ -59,6 +59,9 @@ public class DialogueManager : MonoBehaviour
         {
             ContinueStory();
         }
+
+        
+
     }
 
     public void EnterDialogueMode( TextAsset inkJSON)

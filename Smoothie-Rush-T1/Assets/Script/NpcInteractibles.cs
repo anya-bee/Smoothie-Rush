@@ -55,5 +55,7 @@ public class NpcInteractibles : MonoBehaviour
         Gizmos.DrawWireSphere(interactPoint.position, interactRange);
     }
 
+    
+
 
 }
