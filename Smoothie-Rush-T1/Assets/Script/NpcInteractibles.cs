@@ -18,8 +18,7 @@ public class NpcInteractibles : MonoBehaviour
 
     [SerializeField] private TextAsset inkJSON;
 
-    public List<GameObject> npcOrder;
-
+    public List<string> NPC_Order;
     private void Start()
     {
 
@@ -39,7 +38,6 @@ public class NpcInteractibles : MonoBehaviour
                 if (Input.GetKeyDown(interactKey))
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-
                 }
             }
         }
@@ -49,9 +47,7 @@ public class NpcInteractibles : MonoBehaviour
             interactAction.SetActive(false); 
         }
 
-
     }
-
 
     private void OnDrawGizmosSelected()
     {

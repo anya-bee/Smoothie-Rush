@@ -14,6 +14,8 @@ public class smoothieMaker : MonoBehaviour
 
     public List<GameObject> targets;
     public List<GameObject> fruitsOnBlender;
+    public string[] fruitsToArray = new string[3];
+
     private float fruitLerpSpeed = 2;
     public Animator animator;
     public GameObject button;
@@ -38,10 +40,15 @@ public class smoothieMaker : MonoBehaviour
             colliderInt[0].GetComponent<Draggable>().isOnInventory = true;
             colliderInt[0].GetComponent<Draggable>().isOnBlender = true;
             
+            
         }
+
+
 
         if (GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().playerFruits == 0)
         {
+            
+
             button.SetActive(true);
             animator.SetBool("closed", true);
             changeJuiceColor();
@@ -49,7 +56,8 @@ public class smoothieMaker : MonoBehaviour
 
         if  (smoothieBeingMade)
         {
-            RemoveFruits();
+            HideFruits();
+
         }
 
 
@@ -61,25 +69,15 @@ public class smoothieMaker : MonoBehaviour
         Gizmos.DrawWireSphere(interactPoint.position, interactRange);
     }
 
-    public void RemoveFruits()
+    public void HideFruits()
     {
         foreach (GameObject fruit in fruitsOnBlender)
         {
             fruit.SetActive(false);
-            fruitsOnBlender.Remove(fruit);
             break;
         }
     }
 
-    public void hideBlenderFruits()
-    {
-
-        foreach (GameObject fruit in fruitsOnBlender)
-        {
-            
-            break;
-        }
-    }
 
 
     public void makeSmoothieOrder()
@@ -96,6 +94,9 @@ public class smoothieMaker : MonoBehaviour
         int pitahaya = 0;
         foreach (GameObject fruit in fruitsOnBlender)
         {
+            
+            
+
             if (fruit.GetComponent<Fruit>().fruitType == "Orange")
             {
                 orange =+ 1;
@@ -115,18 +116,19 @@ public class smoothieMaker : MonoBehaviour
             {
                 pitahaya =+ 1;
             }
+            
         }
-        if (orange >= 1)
+        if (orange >= 2)
         {
             juiceRender.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
 
-        if (strawberry >= 1)
+        if (strawberry >= 2)
         {
             juiceRender.GetComponent<SpriteRenderer>().color = Color.red;
         }
 
-        if (banana >= 1)
+        if (banana >= 2)
         {
             juiceRender.GetComponent<SpriteRenderer>().color = Color.yellow;
         }

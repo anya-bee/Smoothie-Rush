@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,13 +12,22 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
+    [SerializeField] private TextMeshProUGUI displayNameText;
+
     private Story currentStory;
 
     public bool dialogueIsPlaying { get; private set; }
 
     [SerializeField] private KeyCode interactKey;
 
-    private static DialogueManager instance;
+    private static DialogueManager instance; 
+
+    private const string SPEAKER_TAG = "speaker";
+    private const string FRUTA_1 = "fruta1";
+    private const string FRUTA_2 = "fruta2";
+    private const string FRUTA_3 = "fruta3";
+
+    public string[] npcOrder = new string[3]; 
 
     private void Awake()
     {
@@ -57,6 +67,9 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        // reset stuff 
+
+
         ContinueStory();
     }
 
@@ -64,14 +77,17 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
-        dialogueText.text = ""; 
+        dialogueText.text = "";
     }
 
     private void ContinueStory()
     {
         if (currentStory.canContinue)
         {
+            // set text for the current dialogue line
             dialogueText.text = currentStory.Continue();
+            // handle tags 
+            HandleTags(currentStory.currentTags);
         }
 
         else
@@ -79,4 +95,50 @@ public class DialogueManager : MonoBehaviour
             ExitDialogueMode();
         }
     }
+
+
+
+    private void HandleTags(List<string> currentTags)
+    {
+        //loop through each tag and handle it accordingly 
+        foreach ( string tag in currentTags)
+        {
+            // parse de tag 
+            string[] splitTag = tag.Split(':');
+            if (splitTag.Length != 2)
+            {
+                Debug.LogError("Tag couldnt be parsed LOL");
+            }
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim(); 
+            
+
+            switch (tagKey)
+            { 
+             case SPEAKER_TAG:
+                    displayNameText.text = tagValue;
+                    break;
+             case FRUTA_1:
+                    npcOrder[0] = tagValue;
+                    break;
+             case FRUTA_2:
+                    npcOrder[1] = tagValue;
+                    break;
+             case FRUTA_3:
+                    npcOrder[2] = tagValue;
+                    break;
+
+            default:
+                    Debug.LogWarning("Tage came in but is not being handled");
+                    break;
+
+            }
+
+
+
+
+        }
+    }
+
+
 }
