@@ -52,11 +52,11 @@ TagManager:
   - name: Background
     uniqueID: 1340378939
     locked: 0
-  - name: Character
-    uniqueID: 2205334793
-    locked: 0
   - name: Foreground
     uniqueID: 866330329
+    locked: 0
+  - name: Character
+    uniqueID: 2205334793
     locked: 0
   - name: 'Screens '
     uniqueID: 470364477

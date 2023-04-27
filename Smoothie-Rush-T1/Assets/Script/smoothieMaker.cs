@@ -126,6 +126,7 @@ public class smoothieMaker : MonoBehaviour
             {
                 pitahaya += 1;
             }
+
         }
 
 
@@ -147,8 +148,10 @@ public class smoothieMaker : MonoBehaviour
 
         if (pitahaya > 1)
         {
-            juiceRender.GetComponent<SpriteRenderer>().color = new Color(1, 0.42F, 0.56F, 1);
+            juiceRender.GetComponent<SpriteRenderer>().color = new Color(1, 0.35F, 0.69F, 1);
         }
+
+
     }
 
 

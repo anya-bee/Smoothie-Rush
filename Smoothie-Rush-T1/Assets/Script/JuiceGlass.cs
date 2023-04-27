@@ -6,11 +6,15 @@ public class JuiceGlass : MonoBehaviour
 {
 
     public string[] glassFruits = new string[3];
+    public bool isReady = false; 
 
     public Sprite orangeJuiceSprite;
     public Sprite strawberryJuiceSprite;
     public Sprite bananaJuiceSprite;
     public Sprite pitahayaJuiceSprite;
+    public Sprite defaultJuice;
+
+    public GameObject glass;
 
 
     void Start()
@@ -31,6 +35,13 @@ public class JuiceGlass : MonoBehaviour
 
     }
 
+    public void juiceIsReady()
+    {
+        isReady = true;
+        GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().renderClientJuice();
+
+    }
+
     public void changeJuiceSprite()
     {
 
@@ -38,6 +49,7 @@ public class JuiceGlass : MonoBehaviour
         int strawberry = 0;
         int banana = 0;
         int pitahaya = 0;
+
 
         foreach (string fruitname in glassFruits)
         {
@@ -62,25 +74,37 @@ public class JuiceGlass : MonoBehaviour
             }
         }
 
+
         if (orange > 1)
         {
-            this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = orangeJuiceSprite;
+            glass.GetComponent<SpriteRenderer>().sprite = orangeJuiceSprite;
+            Debug.Log("orange juice");
         }
-
-        if (strawberry > 1)
+        
+        else if (strawberry > 1)
         {
-            this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = strawberryJuiceSprite; 
+            this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = strawberryJuiceSprite;
+            Debug.Log("strawberry juice");
         }
 
-        if (banana > 1)
+        else if (banana > 1)
         {
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = bananaJuiceSprite;
+            Debug.Log("banana juice");
         }
 
-        if (pitahaya > 1)
+        else if (pitahaya > 1)
         {
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = pitahayaJuiceSprite;
+            Debug.Log("pitahaya juice");
         }
+        else
+        {
+            this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = defaultJuice;
+            Debug.Log("fruit juice");
+        }
+        
+        juiceIsReady();
     }
 
 
@@ -100,6 +124,7 @@ public class JuiceGlass : MonoBehaviour
                 nomatched += 1;
             }
         }
+        Debug.Log("matched fruits : " + matched);
 
         
     }
