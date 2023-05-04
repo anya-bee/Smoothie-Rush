@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class JuiceGlass : MonoBehaviour
 {
 
     public string[] glassFruits = new string[3];
-    public bool isReady = false; 
-
+    public bool isReady = false;
     public Sprite orangeJuiceSprite;
     public Sprite strawberryJuiceSprite;
     public Sprite bananaJuiceSprite;
@@ -16,6 +16,15 @@ public class JuiceGlass : MonoBehaviour
 
     public GameObject glass;
 
+    float T;
+    bool changesprite = false;
+    bool startTimer = false;
+
+
+    int orange = 0;
+    int strawberry = 0;
+    int banana = 0;
+    int pitahaya = 0;
 
     void Start()
     {
@@ -25,7 +34,22 @@ public class JuiceGlass : MonoBehaviour
     
     void Update()
     {
+        if(startTimer)
+            timer();
+        if (changesprite)
+            UpdateSprite();
         fillGlassFruitsArray();  
+    }
+
+    private void timer()
+    {
+        T=T+Time.fixedDeltaTime;
+        if (T > 10)
+        {
+            T = 0;
+            changesprite=true;
+            startTimer = false;
+        }
     }
 
 
@@ -44,11 +68,7 @@ public class JuiceGlass : MonoBehaviour
 
     public void changeJuiceSprite()
     {
-
-        int orange = 0;
-        int strawberry = 0;
-        int banana = 0;
-        int pitahaya = 0;
+        startTimer = true;
 
 
         foreach (string fruitname in glassFruits)
@@ -75,35 +95,44 @@ public class JuiceGlass : MonoBehaviour
         }
 
 
+    }
+
+    public void UpdateSprite()
+    {
+
         if (orange > 1)
         {
             glass.GetComponent<SpriteRenderer>().sprite = orangeJuiceSprite;
             Debug.Log("orange juice");
         }
-        
+
         else if (strawberry > 1)
         {
+          
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = strawberryJuiceSprite;
             Debug.Log("strawberry juice");
         }
 
         else if (banana > 1)
         {
+            
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = bananaJuiceSprite;
             Debug.Log("banana juice");
         }
 
         else if (pitahaya > 1)
         {
+       
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = pitahayaJuiceSprite;
             Debug.Log("pitahaya juice");
         }
         else
         {
+            
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = defaultJuice;
             Debug.Log("fruit juice");
         }
-        
+
         juiceIsReady();
     }
 
