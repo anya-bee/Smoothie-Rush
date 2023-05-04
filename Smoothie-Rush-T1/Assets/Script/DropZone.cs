@@ -14,6 +14,7 @@ public class DropZone : MonoBehaviour
     public bool fruitInRange;
 
     [SerializeField] private GameObject player;
+    [SerializeField]private fridgeInventory Fridge;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,8 @@ public class DropZone : MonoBehaviour
                 GameObject newFruit =  Instantiate(colliderInt[0].gameObject, dropZonePoint.position, Quaternion.identity);
                 newFruit.layer = LayerMask.NameToLayer("Slots");
                 player.GetComponent<PlayerInventory>().inventoryFruits.Add(newFruit);
-                player.GetComponent<PlayerInventory>().addFruitToInventory(); 
+                player.GetComponent<PlayerInventory>().addFruitToInventory();
+                Fridge.RestarFruta(newFruit.GetComponent<Fruit>().fruitType);
                 newFruit.GetComponent<Draggable>().isOnInventory = true;
                 //Debug.Log(colliderInt[0].GetComponent<fridgeInventory.fridgeFruit>().fruitAmount); 
     

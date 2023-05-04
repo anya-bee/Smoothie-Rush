@@ -61,6 +61,9 @@ TagManager:
   - name: 'Screens '
     uniqueID: 470364477
     locked: 0
+  - name: Enemies
+    uniqueID: 3316484417
+    locked: 0
   - name: Blender BG
     uniqueID: 1233859973
     locked: 0

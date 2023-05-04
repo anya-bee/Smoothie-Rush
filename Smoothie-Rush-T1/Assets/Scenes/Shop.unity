@@ -327,7 +327,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1233859973
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 2034456266, guid: e6e5543060cd31f4c8c4db2564bb5e6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -561,6 +561,7 @@ MonoBehaviour:
   - fruitPrefab: {fileID: 308667227846027556, guid: 95bf7c58c1ceb8545a4a1f56bd673a57, type: 3}
     fruitAmount: 5
   fridgeFruits: []
+  quantityPerFruit: 
 --- !u!1 &335320422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1289,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1060604469
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c74a5e1634eabdb41b685ad5171f0043, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1700,7 +1701,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -459691793
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f206652abd811cd46afbe87b84aa18dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1805,7 +1806,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -452949335
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 1232645045, guid: 585bdcc1536dbd9458f0416b768d80ad, type: 3}
   m_Color: {r: 0, g: 1, b: 0.52424383, a: 1}
@@ -2427,37 +2428,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8110667252974779508, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: colliderInt.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: m_FlipY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: m_Sprite
+      propertyPath: Fridge
       value: 
-      objectReference: {fileID: 449220527, guid: 585bdcc1536dbd9458f0416b768d80ad, type: 3}
-    - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: m_SortingLayer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -566666285
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 169352196}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
 --- !u!1 &812613950
@@ -4437,7 +4410,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1233859973
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 2034456266, guid: e6e5543060cd31f4c8c4db2564bb5e6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4823,7 +4796,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1060604469
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b665bbe822358c749b74ff3214440ff8, type: 3}
   m_Color: {r: 1, g: 0.61698115, b: 0.8166152, a: 1}
@@ -4923,7 +4896,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -452949335
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.34133613, g: 0.123851895, b: 0.46226418, a: 1}
@@ -5007,6 +4980,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8110667252974779508, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
+      propertyPath: Fridge
+      value: 
+      objectReference: {fileID: 169352196}
+    - target: {fileID: 8110667252974779508, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
       propertyPath: colliderInt.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5028,7 +5005,7 @@ PrefabInstance:
       objectReference: {fileID: 449220527, guid: 585bdcc1536dbd9458f0416b768d80ad, type: 3}
     - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
       propertyPath: m_SortingLayer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
       propertyPath: m_SortingLayerID
@@ -5671,7 +5648,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1233859973
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 303d0433e467a8040a89e705042e53b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5943,7 +5920,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1233859973
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 2034456266, guid: e6e5543060cd31f4c8c4db2564bb5e6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6090,7 +6067,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1233859973
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 2034456266, guid: e6e5543060cd31f4c8c4db2564bb5e6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6424,6 +6401,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8110667252974779508, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
+      propertyPath: Fridge
+      value: 
+      objectReference: {fileID: 169352196}
+    - target: {fileID: 8110667252974779508, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 2101394539}
@@ -6465,7 +6446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
       propertyPath: m_SortingLayer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8110667252974779509, guid: c77b1938b87eeb94ab0a6b86cf95041f, type: 3}
       propertyPath: m_SortingLayerID
