@@ -11,6 +11,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private int interactiblesFound;
     private readonly Collider2D[] colliderInt = new Collider2D[3];
 
+    public Animator animator;
+
     float T;
     bool attack = false;
     bool startTimer = false;
@@ -32,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
             startTimer = true;
 
             if (attack)
-                enemyAttack();
+                playerAttack();
         }
         else
         {
@@ -46,9 +48,10 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawWireSphere(interactPoint.position, interactRange);
     }
 
-    void enemyAttack()
+    void playerAttack()
     {
-        colliderInt[0].gameObject.GetComponent<HealthComponent>().Damage(10f);
+        colliderInt[0].gameObject.GetComponent<HealthComponent>().Damage(20f);
+        animator.SetTrigger("canAttack"); 
         attack = false;
     }
     private void timer()

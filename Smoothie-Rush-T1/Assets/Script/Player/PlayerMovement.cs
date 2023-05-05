@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Animator animator; 
-    Vector2 movement; 
+    Vector2 movement;
+    public int direction; 
 
     // Update is called once per frame
     void Update()
@@ -30,4 +31,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+
 }

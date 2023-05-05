@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed;
+    public float moveSpeed;
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;

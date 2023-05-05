@@ -267,10 +267,10 @@ GameObject:
   - component: {fileID: 183593713}
   - component: {fileID: 183593712}
   - component: {fileID: 183593711}
-  - component: {fileID: 183593714}
   - component: {fileID: 183593715}
   - component: {fileID: 183593716}
-  m_Layer: 0
+  - component: {fileID: 183593717}
+  m_Layer: 11
   m_Name: Enemytest1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,19 +340,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &183593714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183593710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05352bf0097f92409b20ea4f550b44d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLifeAmount: 0
 --- !u!114 &183593715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +379,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   interactiblesFound: 0
+--- !u!114 &183593717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183593710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20288891649a0f04490bc38dd21cc2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLifeAmount: 0
+  maxLifeAmount: 200
 --- !u!1 &335320422
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +482,7 @@ GameObject:
   - component: {fileID: 359824488}
   - component: {fileID: 359824490}
   - component: {fileID: 359824489}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,7 +1405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1439682548}
   m_Layer: 6
-  m_Name: juiceIP
+  m_Name: IP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,7 +1419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439682547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.07, z: 0}
+  m_LocalPosition: {x: 1.26, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2432,6 +2433,7 @@ GameObject:
   - component: {fileID: 2101394542}
   - component: {fileID: 2101394545}
   - component: {fileID: 2101394546}
+  - component: {fileID: 2101394547}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2471,6 +2473,7 @@ MonoBehaviour:
   moveSpeed: 140
   rb: {fileID: 2101394544}
   animator: {fileID: 923737951}
+  direction: 0
 --- !u!61 &2101394543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2548,6 +2551,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLifeAmount: 0
   maxLifeAmount: 100
+--- !u!114 &2101394547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101394539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1883b0b8a95a16e40ad790aa4ed75bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 0
+  interactRange: 15.98
+  interactPoint: {fileID: 1439682548}
+  Enemy:
+    serializedVersion: 2
+    m_Bits: 2048
+  interactiblesFound: 0
+  animator: {fileID: 923737951}
 --- !u!1001 &8110667252350486564
 PrefabInstance:
   m_ObjectHideFlags: 0
