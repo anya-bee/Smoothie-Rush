@@ -17,6 +17,11 @@ public class NpcInteractibles : MonoBehaviour
     private readonly Collider2D[] colliderInt = new Collider2D[3];
 
     [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private TextAsset PerfectDrink;
+    [SerializeField] private TextAsset GoodDrink;
+
+
+    public bool orderIsReady = false;
 
     public List<string> NPC_Order;
     private void Start()
@@ -39,6 +44,8 @@ public class NpcInteractibles : MonoBehaviour
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                 }
+
+                
             }
         }
         else
@@ -47,6 +54,11 @@ public class NpcInteractibles : MonoBehaviour
             interactAction.SetActive(false); 
         }
 
+    }
+
+    public void orderReady()
+    {
+        orderIsReady = true;
     }
 
     private void OnDrawGizmosSelected()

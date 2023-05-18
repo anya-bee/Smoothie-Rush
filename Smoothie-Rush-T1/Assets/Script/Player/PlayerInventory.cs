@@ -65,16 +65,20 @@ public class PlayerInventory : MonoBehaviour
 
     public void renderClientJuice()
     {
-        if (GameObject.FindWithTag("Glass").GetComponentInParent<JuiceGlass>().isReady == true)
+        for (int i = 0; i<1; i++)
         {
-            GameObject clientGlass = Instantiate(GameObject.FindWithTag("Glass"), juiceIP.position, Quaternion.identity);
-            clientGlass.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
-            clientGlass.transform.parent = juiceIP.parent;
-            Vector3 objectScale = clientGlass.transform.localScale;
-            clientGlass.transform.localScale = new Vector3(objectScale.x * 0.35F, objectScale.y * 0.35F, objectScale.z * 0.4F);
-            
-
+            if (GameObject.FindWithTag("Glass").GetComponentInParent<JuiceGlass>().isReady == true)
+            {
+                GameObject clientGlass = Instantiate(GameObject.FindWithTag("Glass"), juiceIP.position, Quaternion.identity);
+                clientGlass.layer = LayerMask.NameToLayer("JuiceSprite");
+                clientGlass.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
+                clientGlass.transform.parent = juiceIP.parent;
+                Vector3 objectScale = clientGlass.transform.localScale;
+                clientGlass.transform.localScale = new Vector3(objectScale.x * 0.35F, objectScale.y * 0.35F, objectScale.z * 0.4F);
+                break;
+            }
         }
+        
     }
 
 }

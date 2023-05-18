@@ -12,6 +12,7 @@ TagManager:
   - Juice
   - Manager
   - Glass
+  - JuiceSprite
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Slots
   - Blender
   - Enemy
-  - 
+  - JuiceSprite
   - 
   - 
   - 

@@ -34,6 +34,9 @@ public class DialogueManager : MonoBehaviour
 
     public string juiceState;
 
+    public List<Choice> currentChoices;
+
+
     private void Awake()
     {
         if (instance != null)
@@ -63,6 +66,7 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown(interactKey))
         {
             ContinueStory();
+            currentChoices = currentStory.currentChoices;
         }
 
         
@@ -96,6 +100,8 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text = currentStory.Continue();
             // handle tags 
             HandleTags(currentStory.currentTags);
+            StartCoroutine(SelectFirstChoice());
+            
         }
 
         else
@@ -141,23 +147,48 @@ public class DialogueManager : MonoBehaviour
                     break;
 
             }
-
-
-
-
         }
     }
 
-
-    private void checkOrderManager()
+    public void perfectTest()
     {
-        juiceState = GameObject.FindWithTag("Glass").GetComponent<JuiceGlass>().result;
-        
-       
+        juiceState = "Perfect";
+    }
 
+    public void goodTest()
+    {
+        juiceState = "Good";
+    }
 
+    public void checkOrder()
+    {
+        switch (juiceState)
+        {
+            case PERFECT:
+                DialogueManager.instance.makeChoice(0);
+                Debug.Log("Perfect");
+                break;
+            case GOOD:
+                DialogueManager.instance.makeChoice(1);
+                Debug.Log("Good");
+                break;
+        }
 
     }
+
+    private IEnumerator SelectFirstChoice()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+
+    }
+
+
+    private void makeChoice(int choiceIndex)
+    {
+        currentStory.ChooseChoiceIndex(choiceIndex);
+    }
+
 
 
 }

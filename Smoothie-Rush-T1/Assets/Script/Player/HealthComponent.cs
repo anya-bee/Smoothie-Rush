@@ -20,7 +20,7 @@ public class HealthComponent : MonoBehaviour
 
         if (currentLifeAmount <= 0)
         {
-            //Die();
+            Die();
         }
     }
 

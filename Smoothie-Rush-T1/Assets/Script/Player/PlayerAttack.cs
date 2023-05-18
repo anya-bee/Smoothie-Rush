@@ -14,9 +14,8 @@ public class PlayerAttack : MonoBehaviour
 
     public Animator animator;
 
-    float T;
     bool attack = false;
-    bool startTimer = false;
+
 
     // Start is called before the first frame update
     void Start()
