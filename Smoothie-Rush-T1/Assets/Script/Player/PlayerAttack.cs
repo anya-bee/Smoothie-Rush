@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private KeyCode interactKey;
     [HideInInspector] public bool playerInRange;
     [SerializeField] private float interactRange = 0.5f;
     [SerializeField] private Transform interactPoint;
@@ -26,22 +27,23 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startTimer)
-            timer();
+        
+        if (Input.GetKeyDown(interactKey))
+        {
+            attackinput();
+        }
+    }
+    void attackinput()
+    {
+        animator.SetTrigger("canAttack");
+        
         interactiblesFound = Physics2D.OverlapCircleNonAlloc(interactPoint.position, interactRange, colliderInt, Enemy);
         if (interactiblesFound == 1)
         {
-            startTimer = true;
-
-            if (attack)
-                playerAttack();
+            playerAttack();
         }
-        else
-        {
-            T = 0;
-        }
+      
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -51,17 +53,8 @@ public class PlayerAttack : MonoBehaviour
     void playerAttack()
     {
         colliderInt[0].gameObject.GetComponent<HealthComponent>().Damage(20f);
-        animator.SetTrigger("canAttack"); 
+         
         attack = false;
     }
-    private void timer()
-    {
-        T = T + Time.fixedDeltaTime;
-        if (T > 30)
-        {
-            T = 0;
-            attack = true;
-            startTimer = false;
-        }
-    }
+    
 }

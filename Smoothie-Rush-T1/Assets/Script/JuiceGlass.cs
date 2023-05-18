@@ -26,6 +26,8 @@ public class JuiceGlass : MonoBehaviour
     int banana = 0;
     int pitahaya = 0;
 
+    public string result;
+
     void Start()
     {
         
@@ -147,12 +149,17 @@ public class JuiceGlass : MonoBehaviour
             if ( glassFruits[i] == GameObject.FindWithTag("Manager").GetComponent<DialogueManager>().npcOrder[i])
             {
                 matched += 1;
+                result = "Perfect";
+
             }
             else
             {
                 nomatched += 1;
+                result = "Good";
             }
         }
+
+
         Debug.Log("matched fruits : " + matched);
 
         

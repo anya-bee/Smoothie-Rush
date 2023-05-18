@@ -9,8 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator; 
     Vector2 movement;
-    public int direction; 
-
+    public int direction;
+    public float horizontalMvmt;
+    public float verticalMvmt;
+    private bool HLast=false;
+    private bool VLast=false;
     // Update is called once per frame
     void Update()
     {
@@ -22,9 +25,26 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        if (movement.x != 0)
+        {
+            animator.SetFloat("hrM", movement.x);
+            HLast = true;
+            VLast = false;
+        }
+
+        if (movement.y != 0)
+        {
+            animator.SetFloat("vrM", movement.y);
+            HLast = false;
+            VLast = true;
+        }
+
+        animator.SetBool("hlast", HLast);
+        animator.SetBool("vlast", VLast);
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
     }
 
     private void FixedUpdate()

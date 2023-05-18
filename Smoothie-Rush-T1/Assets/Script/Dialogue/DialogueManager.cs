@@ -27,7 +27,12 @@ public class DialogueManager : MonoBehaviour
     private const string FRUTA_2 = "fruta2";
     private const string FRUTA_3 = "fruta3";
 
-    public string[] npcOrder = new string[3]; 
+    private const string PERFECT = "Perfect";
+    private const string GOOD = "Good";
+
+    public string[] npcOrder = new string[3];
+
+    public string juiceState;
 
     private void Awake()
     {
@@ -141,6 +146,17 @@ public class DialogueManager : MonoBehaviour
 
 
         }
+    }
+
+
+    private void checkOrderManager()
+    {
+        juiceState = GameObject.FindWithTag("Glass").GetComponent<JuiceGlass>().result;
+        
+       
+
+
+
     }
 
 

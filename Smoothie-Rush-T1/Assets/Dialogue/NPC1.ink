@@ -9,7 +9,12 @@ Quiero un batido con 2 <b>fresas</b> y 1 <b>banana</b>. #fruta1:Strawberry #frut
 
 Aquí espero #speaker:Gradma
 
--> END 
++ [Perfect]
+    Perfecto. 
+        -> END
++ [Good]
+    Bueno. 
+        -> END 
 
 
 
