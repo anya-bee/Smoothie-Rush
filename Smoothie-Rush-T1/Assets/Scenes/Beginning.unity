@@ -1319,6 +1319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   changetime: 8
+  changescene: 1
+  triggerChange: {fileID: 0}
 --- !u!4 &2066947827
 Transform:
   m_ObjectHideFlags: 0
