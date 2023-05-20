@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -16,6 +18,18 @@ public class PlayerAttack : MonoBehaviour
 
     bool attack = false;
 
+    private int strawberryEnemy = 0;
+    private int bananaEnemy = 0;
+    private int orangeEnemy = 0;
+    private int pitahayaEnemy = 0;
+
+    [SerializeField] private TextMeshProUGUI strawberryCount;
+    [SerializeField] private TextMeshProUGUI bananaCount;
+    [SerializeField] private TextMeshProUGUI orangeCount;
+    [SerializeField] private TextMeshProUGUI pitahayaCount;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +40,11 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        strawberryCount.text = strawberryEnemy.ToString();
+        bananaCount.text = bananaEnemy.ToString();
+        orangeCount.text = orangeEnemy.ToString();
+        pitahayaCount.text = pitahayaEnemy.ToString();
+
         if (Input.GetKeyDown(interactKey))
         {
             attackinput();
@@ -52,7 +70,24 @@ public class PlayerAttack : MonoBehaviour
     void playerAttack()
     {
         colliderInt[0].gameObject.GetComponent<EnemyHealth>().Damage(20f);
-         
+        if (colliderInt[0].gameObject.GetComponent<EnemyAttack>().enemyName == "Strawberry" && colliderInt[0].gameObject.GetComponent<EnemyHealth>().isDead)
+        {
+            strawberryEnemy += 1;
+        }
+        else if (colliderInt[0].gameObject.GetComponent<EnemyAttack>().enemyName == "Banana" && colliderInt[0].gameObject.GetComponent<EnemyHealth>().isDead)
+        {
+            bananaEnemy += 2;
+        }
+        else if (colliderInt[0].gameObject.GetComponent<EnemyAttack>().enemyName == "Orange" && colliderInt[0].gameObject.GetComponent<EnemyHealth>().isDead)
+        {
+            orangeEnemy += 1;
+        }
+        if (colliderInt[0].gameObject.GetComponent<EnemyAttack>().enemyName == "Pitahaya" && colliderInt[0].gameObject.GetComponent<EnemyHealth>().isDead)
+        {
+            pitahayaEnemy += 2;
+        }
+
+
         attack = false;
     }
     

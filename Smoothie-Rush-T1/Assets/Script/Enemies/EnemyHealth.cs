@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyHealth : MonoBehaviour
 {
     //ATRIBUTOS
     public float currentLifeAmount;
     public float maxLifeAmount;
+    public bool isDead;
 
 
 
     private void Start()
     {
         currentLifeAmount = maxLifeAmount;
+    }
+
+    private void Update()
+    {
     }
 
     //METODOS
@@ -38,6 +44,7 @@ public class EnemyHealth : MonoBehaviour
 
     protected void Die()
     {
+        isDead = true;
         Destroy(this.gameObject);
     }
 }

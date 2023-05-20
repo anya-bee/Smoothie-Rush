@@ -11,6 +11,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private int interactiblesFound;
     private readonly Collider2D[] colliderInt = new Collider2D[3];
 
+    public string enemyName;
+
     float T;
     bool attack = false;
     bool startTimer = false;
