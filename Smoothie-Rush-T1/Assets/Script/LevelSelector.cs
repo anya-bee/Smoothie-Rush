@@ -6,6 +6,7 @@ public class LevelSelector : MonoBehaviour
 {
 
     public int level; 
+    public float changetime;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +16,16 @@ public class LevelSelector : MonoBehaviour
     public void OpenScene()
     {
         SceneManager.LoadScene(level);
+    }
+
+    private void Update()
+    {
+
+        changetime -= Time.deltaTime;
+        if (changetime <= 0)
+        {
+            SceneManager.LoadScene(level);
+        }
+
     }
 }
