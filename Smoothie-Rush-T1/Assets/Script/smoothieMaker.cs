@@ -28,10 +28,18 @@ public class smoothieMaker : MonoBehaviour
     private int banana = 0;
     private int pitahaya = 0;
 
+    public bool finishedDrink = false;
     private void Start()
     {
         button.SetActive(false);
     }
+
+    public void finishedDrinkFalse()
+    {
+        finishedDrink = false;
+    }
+
+
 
 
     private void Update()
@@ -151,6 +159,11 @@ public class smoothieMaker : MonoBehaviour
             juiceRender.GetComponent<SpriteRenderer>().color = new Color(1, 0.35F, 0.69F, 1);
         }
 
+    }
+    public void cleanUp()
+    {
+        smoothieBeingMade = false;
+        fruitsOnBlender.Clear();
 
     }
 

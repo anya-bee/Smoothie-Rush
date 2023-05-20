@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     //ATRIBUTOS
-    private float currentLifeAmount;
+    public float currentLifeAmount;
     public float maxLifeAmount;
 
 

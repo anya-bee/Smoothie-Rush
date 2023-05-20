@@ -13,6 +13,8 @@ TagManager:
   - Manager
   - Glass
   - JuiceSprite
+  - clientJuice
+  - servedJuice
   layers:
   - Default
   - TransparentFX

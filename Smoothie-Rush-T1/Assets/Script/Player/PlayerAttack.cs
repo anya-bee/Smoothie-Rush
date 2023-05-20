@@ -51,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
 
     void playerAttack()
     {
-        colliderInt[0].gameObject.GetComponent<HealthComponent>().Damage(20f);
+        colliderInt[0].gameObject.GetComponent<EnemyHealth>().Damage(20f);
          
         attack = false;
     }

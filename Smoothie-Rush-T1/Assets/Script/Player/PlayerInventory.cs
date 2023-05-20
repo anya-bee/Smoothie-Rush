@@ -70,6 +70,7 @@ public class PlayerInventory : MonoBehaviour
             if (GameObject.FindWithTag("Glass").GetComponentInParent<JuiceGlass>().isReady == true)
             {
                 GameObject clientGlass = Instantiate(GameObject.FindWithTag("Glass"), juiceIP.position, Quaternion.identity);
+                clientGlass.gameObject.tag = "clientJuice";
                 clientGlass.layer = LayerMask.NameToLayer("JuiceSprite");
                 clientGlass.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
                 clientGlass.transform.parent = juiceIP.parent;
@@ -80,5 +81,8 @@ public class PlayerInventory : MonoBehaviour
         }
         
     }
+
+
+    
 
 }

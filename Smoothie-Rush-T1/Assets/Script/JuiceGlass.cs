@@ -13,6 +13,7 @@ public class JuiceGlass : MonoBehaviour
     public Sprite bananaJuiceSprite;
     public Sprite pitahayaJuiceSprite;
     public Sprite defaultJuice;
+    public Sprite emptyGlass;
 
     public GameObject glass;
 
@@ -28,6 +29,7 @@ public class JuiceGlass : MonoBehaviour
 
     public string result;
 
+
     void Start()
     {
         
@@ -39,8 +41,11 @@ public class JuiceGlass : MonoBehaviour
         if(startTimer)
             timer();
         if (changesprite)
+        {
             UpdateSprite();
-        fillGlassFruitsArray();  
+            
+        }
+        fillGlassFruitsArray();
     }
 
     private void timer()
@@ -55,7 +60,7 @@ public class JuiceGlass : MonoBehaviour
     }
 
 
-    private void fillGlassFruitsArray()
+    public void fillGlassFruitsArray()
     {
         glassFruits = GameObject.FindWithTag("CodeBlender").GetComponent<smoothieMaker>().fruitsArray;
 
@@ -104,7 +109,7 @@ public class JuiceGlass : MonoBehaviour
 
         if (orange > 1)
         {
-            glass.GetComponent<SpriteRenderer>().sprite = orangeJuiceSprite;
+            glass.GetComponentInChildren<SpriteRenderer>().sprite = orangeJuiceSprite;
             Debug.Log("orange juice");
         }
 
@@ -134,6 +139,7 @@ public class JuiceGlass : MonoBehaviour
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = defaultJuice;
             Debug.Log("fruit juice");
         }
+        changesprite = false;
 
         juiceIsReady();
     }
@@ -150,18 +156,27 @@ public class JuiceGlass : MonoBehaviour
             {
                 matched += 1;
                 result = "Perfect";
+                GetComponentInChildren<JuiceStatus>().status = result;
+                GetComponentInChildren<JuiceStatus>().isReady = true;
+
 
             }
             else
             {
                 nomatched += 1;
                 result = "Good";
+                GetComponentInChildren<JuiceStatus>().status = result;
+                GetComponentInChildren<JuiceStatus>().isReady = true;
             }
         }
-
-
+       
         Debug.Log("matched fruits : " + matched);
 
         
+    }
+
+    public void cleanUpSprite()
+    {
+        this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = emptyGlass;
     }
 }

@@ -17,8 +17,7 @@ public class NpcInteractibles : MonoBehaviour
     private readonly Collider2D[] colliderInt = new Collider2D[3];
 
     [SerializeField] private TextAsset inkJSON;
-    [SerializeField] private TextAsset PerfectDrink;
-    [SerializeField] private TextAsset GoodDrink;
+    [SerializeField] private TextAsset DrinkReady;
 
 
     public bool orderIsReady = false;
@@ -44,8 +43,12 @@ public class NpcInteractibles : MonoBehaviour
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                 }
+                if (Input.GetKeyDown(interactKey) && orderIsReady)
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(DrinkReady);
+                }
 
-                
+
             }
         }
         else

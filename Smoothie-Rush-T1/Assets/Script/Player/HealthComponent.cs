@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthComponent : MonoBehaviour
 {
     //ATRIBUTOS
     public float currentLifeAmount;
     public float maxLifeAmount;
+    public Image LifeBar;
+
 
     private void Start()
     {
@@ -16,6 +19,7 @@ public class HealthComponent : MonoBehaviour
     //METODOS
     public void Damage(float amount)
     {
+        LifeBar.fillAmount = currentLifeAmount / maxLifeAmount;
         currentLifeAmount =currentLifeAmount- amount;
 
         if (currentLifeAmount <= 0)
