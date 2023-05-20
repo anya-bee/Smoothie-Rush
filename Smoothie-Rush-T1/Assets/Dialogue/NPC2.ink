@@ -3,18 +3,11 @@
 ->   main 
 
 === main === 
-Quiero un batido con 2 <b>fresas</b> y 1 <b>banana</b>. #fruta1:Strawberry #fruta2:Strawberry #fruta3:Banana #speaker:Gradma
+Quiero un batido con 2 <b>naranjas</b> y 1 <b>pitahaya</b>. #fruta1:Orange #fruta2:Orange #fruta3:Pitahaya #speaker:Emo Boy
 
 - Ahorita se lo preparo #speaker:Alma
-Aquí espero #speaker:Gradma
+Rápido, que no tengo tiempo :/  #speaker:Emo Boy
 
-+[Perfect]
-Es exactamente lo que quería. Muchas gracias.
-->DONE
-        
-+[Good]
-Sabe un poco extraña... pero gracias.  
-->DONE
 
 ->END
 

@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class Interactibles : MonoBehaviour
 {
-    [SerializeField] private GameObject interactAction;
     [SerializeField] private KeyCode interactKey;
 
     public UnityEvent openUI; 
@@ -22,7 +21,6 @@ public class Interactibles : MonoBehaviour
     {
 
         playerInRange = false;
-        interactAction.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,7 +30,6 @@ public class Interactibles : MonoBehaviour
         if (interactiblesFound == 1)
         {
             playerInRange = true;
-            interactAction.SetActive(true); 
             if (Input.GetKeyDown(interactKey))
             {
                 openUI.Invoke(); 
@@ -43,7 +40,6 @@ public class Interactibles : MonoBehaviour
         else
         {
             playerInRange = false;
-            interactAction.SetActive(false); 
         }
 
 

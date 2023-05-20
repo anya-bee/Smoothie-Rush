@@ -164,6 +164,10 @@ public class smoothieMaker : MonoBehaviour
     {
         smoothieBeingMade = false;
         fruitsOnBlender.Clear();
+        orange = 0;
+        banana = 0;
+        pitahaya = 0;
+        strawberry = 0;
 
     }
 

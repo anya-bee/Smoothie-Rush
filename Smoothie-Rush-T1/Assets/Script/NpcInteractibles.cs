@@ -5,7 +5,6 @@ using Ink.Runtime;
 
 public class NpcInteractibles : MonoBehaviour
 {
-    [SerializeField] private GameObject interactAction;
     [SerializeField] private KeyCode interactKey;
 
 
@@ -27,7 +26,6 @@ public class NpcInteractibles : MonoBehaviour
     {
 
         playerInRange = false;
-        interactAction.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,7 +35,6 @@ public class NpcInteractibles : MonoBehaviour
         if (interactiblesFound == 1)
         {
             playerInRange = true;
-            interactAction.SetActive(true);
             if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) {
                 if (Input.GetKeyDown(interactKey))
                 {
@@ -54,7 +51,6 @@ public class NpcInteractibles : MonoBehaviour
         else
         {
             playerInRange = false;
-            interactAction.SetActive(false); 
         }
 
     }
