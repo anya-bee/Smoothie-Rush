@@ -178,5 +178,9 @@ public class JuiceGlass : MonoBehaviour
     public void cleanUpSprite()
     {
         this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = emptyGlass;
+         orange = 0;
+         strawberry = 0;
+         banana = 0;
+         pitahaya = 0;
     }
 }

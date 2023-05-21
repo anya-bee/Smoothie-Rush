@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class HealthComponent : MonoBehaviour
 
         if (currentLifeAmount <= 0)
         {
-            Die();
+            currentLifeAmount = maxLifeAmount;
+            SceneManager.LoadScene(1);
         }
     }
 

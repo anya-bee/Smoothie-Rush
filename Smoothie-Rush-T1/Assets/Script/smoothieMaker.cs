@@ -23,10 +23,10 @@ public class smoothieMaker : MonoBehaviour
     public GameObject juiceRender;
     public bool smoothieBeingMade;
 
-    private int orange = 0;
-    private int strawberry = 0;
-    private int banana = 0;
-    private int pitahaya = 0;
+    public int orange = 0;
+    public int strawberry = 0;
+    public int banana = 0;
+    public int pitahaya = 0;
 
     public bool finishedDrink = false;
     private void Start()
